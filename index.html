@@ -16,22 +16,56 @@
         font-family: "Poppins", sans-serif;
       }
 
+      nav {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+      }
+
+      .navbar-brand {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 1px;
+      }
+
+      .navbar-portal {
+        font-size: 18px;
+        font-weight: 600;
+        color: #f0f4ff;
+      }
+
       body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
         padding: 20px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        margin-top: 20px;
       }
 
       .container {
         width: 100%;
         max-width: 850px;
-        background: #ffffff;
+        background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
         padding: 40px;
         border-radius: 18px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
         animation: fadeIn 0.5s ease;
       }
 
@@ -49,9 +83,26 @@
       h2 {
         text-align: center;
         font-weight: 700;
-        color: #222;
-        margin-bottom: 25px;
+        color: #667eea;
+        margin-bottom: 20px;
         letter-spacing: 0.5px;
+        animation: slideDown 0.6s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      #logp {
+        text-align: center;
+        color: #6b7280;
       }
 
       input {
@@ -66,10 +117,10 @@
       }
 
       input:focus {
-        border-color: #6366f1;
+        border-color: #667eea;
         background: #ffffff;
         outline: none;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
       }
 
       button {
@@ -84,18 +135,18 @@
       }
 
       button.primary {
-        background: #6366f1;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         color: white;
       }
 
       button.primary:hover:not(:disabled) {
-        background: #4f46e5;
         transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
       }
 
       button.secondary {
-        background: #6366f1;
-        color: white;
+        background: #e5e7eb;
+        color: #374151;
       }
 
       button.secondary:hover {
@@ -103,7 +154,7 @@
       }
 
       button:disabled {
-        background: #a7a9f1;
+        background: #d1d5db;
         cursor: not-allowed;
       }
 
@@ -137,7 +188,7 @@
       }
 
       .welcome-text span {
-        color: #4f46e5;
+        color: #667eea;
         font-weight: 700;
       }
 
@@ -146,25 +197,50 @@
           width: 90%;
         }
       }
+
+      footer {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+      }
+
+      .footer {
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #ffffff;
+        text-align: center;
+        margin: 0;
+      }
     </style>
   </head>
 
   <body>
+    <nav>
+      <div class="navbar-brand">Company Name</div>
+      <div class="navbar-portal">Portal</div>
+    </nav>
+
     <div class="container">
-      <!-- Login Section -->
       <div id="login">
         <h2>Staff Login</h2>
+        <p id="logp">Welcome back, login to access your dashboard</p>
         <input type="text" id="username" placeholder="Enter your name" />
         <input type="email" id="email" placeholder="Enter your email" />
         <button id="loginBtn" class="primary">Login</button>
       </div>
 
-      <!-- Dashboard Section -->
       <div id="dashboard" class="hidden">
         <h2>Dashboard</h2>
         <p class="welcome-text">Welcome, <span id="userName"></span>!</p>
 
-        <!-- Profile Section -->
         <div class="profile-section">
           <div class="profile-field">
             <label>Name</label>
@@ -196,6 +272,10 @@
         </div>
       </div>
     </div>
+
+    <footer>
+      <p class="footer">&copy; 2025 Company name. All rights reserved</p>
+    </footer>
 
     <script src="index.js"></script>
   </body>
