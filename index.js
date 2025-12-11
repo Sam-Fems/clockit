@@ -8,7 +8,7 @@ const clockOutBtn = document.getElementById("clockOutBtn");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-const NINE_HOURS_MS = 9 * 60 * 60 * 1000;
+const NINE_HOURS_MS = 5 * 1000;
 
 function showDashboard() {
   loginSection.classList.add("hidden");
